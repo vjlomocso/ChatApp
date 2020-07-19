@@ -13,7 +13,7 @@
         android:layout_margin="@dimen/form_margin"
         android:id="@+id/index"
         android:focusable="true"
-        android:clickable="true"
+        android:focusableInTouchMode="true"
         tools:context=".ui.index.IndexFragment">
 
         <androidx.constraintlayout.widget.Guideline
