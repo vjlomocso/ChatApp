@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -41,6 +42,13 @@ public class AuthFragment extends Fragment {
         AuthFragmentBinding binding = initBinding(inflater, container);
         View view = binding.getRoot();
         initLinkUnderline(view);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                mainViewModel.close();
+                requireActivity().supportFinishAfterTransition();
+            }
+        });
         return view;
     }
 
