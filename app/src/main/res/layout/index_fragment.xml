@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="handlers" type="ph.lig.chatapp.ui.index.IndexFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/form_margin"
+        android:id="@+id/index"
+        android:focusable="true"
+        android:clickable="true"
+        tools:context=".ui.index.IndexFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/h_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.47" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="10dp"
+            android:contentDescription="@string/logo_desc"
+            android:background="@android:color/transparent"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintDimensionRatio="1.075"
+            app:layout_constraintBottom_toTopOf="@+id/h_center"
+            app:layout_constraintLeft_toLeftOf="@id/title"
+            app:layout_constraintRight_toRightOf="@id/title"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
+            android:background="@android:color/transparent"
+            android:includeFontPadding="false"
+            android:letterSpacing="0.1"
+            android:text="@string/app_name"
+            android:textSize="@dimen/title_text"
+            app:layout_constraintBottom_toTopOf="@id/h_center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/action_btn"
+            style="@style/SecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/form_control_height"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/sign_up"
+            android:onClick="@{handlers::onClickSignUp}"
+            app:layout_constraintBottom_toTopOf="@id/login_btn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/h_center" />
+
+        <Button
+            android:id="@+id/login_btn"
+            style="@style/PrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/form_control_height"
+            android:layout_marginVertical="10dp"
+            android:text="@string/login"
+            android:onClick="@{handlers::onClickLogin}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

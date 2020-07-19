@@ -1,0 +1,20 @@
+<resources>
+<!--  Labels  -->
+    <string name="app_name">Chat app</string>
+    <string name="sign_up">Sign up</string>
+    <string name="login">Login</string>
+    <string name="logo_desc">The chat app logo.</string>
+    <string name="user_name">User name</string>
+    <string name="password">password</string>
+
+<!--  Messages  -->
+    <string name="field_error">Value is incorrect</string>
+    <string name="connection_error">Please check your internet connection.</string>
+    <string name="unknown_error">Unknown error has occurred.</string>
+    <string name="message_box">Start a new message</string>
+    <string name="send">send</string>
+    <string name="tos">By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use. Others will be able to find you by searching for your email address or phone number when provided.</string>
+    <string name="incoming_message_tail_desc">Incoming message tail.</string>
+    <string name="outgoing_message_tail_desc">Outgoing message tail</string>
+    <string name="log_out">Log out</string>
+</resources>

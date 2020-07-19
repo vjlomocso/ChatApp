@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="ph.lig.chatapp.ui.auth.AuthType" />
+        <variable name="viewModel" type="ph.lig.chatapp.ui.auth.AuthViewModel" />
+        <variable name="handlers" type="ph.lig.chatapp.ui.auth.AuthFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_margin="@dimen/form_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".ui.auth.AuthFragment">
+
+        <EditText
+            android:id="@+id/user_name_txt"
+            android:layout_width="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/user_name"
+            android:importantForAutofill="no"
+            android:text="@={viewModel.userName}"
+            android:inputType="textNoSuggestions"
+            style="@style/FormField"
+            app:layout_constraintBottom_toTopOf="@+id/user_name_error_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_name_error_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.userNameError}"
+            android:visibility="@{viewModel.userNameError}"
+            style="@style/FormError"
+            app:layout_constraintTop_toBottomOf="@id/user_name_txt"
+            app:layout_constraintBottom_toTopOf="@id/password_txt"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <EditText
+            android:id="@+id/password_txt"
+            android:layout_width="0dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            style="@style/FormField"
+            android:text="@={viewModel.password}"
+            app:layout_constraintBottom_toTopOf="@+id/password_error_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_name_error_label" />
+
+        <TextView
+            android:id="@+id/password_error_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.passwordError}"
+            android:visibility="@{viewModel.passwordError}"
+            style="@style/FormError"
+            app:layout_constraintTop_toBottomOf="@id/password_txt"
+            app:layout_constraintBottom_toTopOf="@id/action_btn"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/action_btn"
+            style="@style/PrimaryButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/form_control_height"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="@dimen/form_margin"
+            android:text="@{viewModel.authType == AuthType.SIGN_UP ? @string/sign_up : @string/login}"
+            android:onClick="@{handlers::onClickAction}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/password_error_label"
+            app:layout_constraintBottom_toTopOf="@+id/switch_link" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:indeterminate="true"
+            android:visibility="@{viewModel.loading}"
+            style="@android:style/Widget.Material.ProgressBar.Small"
+            app:layout_constraintTop_toTopOf="@id/action_btn"
+            app:layout_constraintBottom_toBottomOf="@id/action_btn"
+            app:layout_constraintLeft_toLeftOf="@id/action_btn"/>
+
+        <TextView
+            android:id="@+id/switch_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.authType == AuthType.SIGN_UP ? @string/login : @string/sign_up}"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingBottom="10dp"
+            android:onClick="@{handlers::onClickSwitch}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tos"
+            app:layout_constraintTop_toBottomOf="@id/action_btn" />
+
+        <TextView
+            android:id="@+id/tos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tos"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_link" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

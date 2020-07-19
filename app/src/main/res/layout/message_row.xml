@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="2dp">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_message_head"
+        android:fontFamily="@font/arial_regular"
+        android:maxWidth="250dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/medium_text"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/sender"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tail_left"
+        android:layout_width="@dimen/message_tail_width"
+        android:layout_height="@dimen/message_tail_height"
+        android:src="@drawable/bg_incoming_message_tail"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintRight_toLeftOf="@id/message"
+        app:layout_constraintBottom_toBottomOf="@id/message"
+        android:contentDescription="@string/incoming_message_tail_desc" />
+
+    <ImageView
+        android:id="@+id/tail_right"
+        android:layout_width="@dimen/message_tail_width"
+        android:layout_height="@dimen/message_tail_height"
+        android:src="@drawable/bg_outgoing_message_tail"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintLeft_toRightOf="@id/message"
+        app:layout_constraintBottom_toBottomOf="@id/message"
+        android:contentDescription="@string/outgoing_message_tail_desc" />
+
+    <TextView
+        android:id="@+id/sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

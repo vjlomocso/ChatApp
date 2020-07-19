@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="handlers" type="ph.lig.chatapp.ui.main.MainActivity" />
+        <variable name="viewModel" type="ph.lig.chatapp.ui.main.MainViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/container"
+        tools:context=".ui.main.MainActivity">
+
+        <FrameLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:visibility="@{viewModel.titleBarShown ? View.VISIBLE : View.GONE}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="0.1"
+                    android:text="@string/app_name"
+                    android:textSize="@dimen/large_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <Button
+                    android:layout_height="@dimen/form_default_height"
+                    android:layout_width="70dp"
+                    android:text="@string/log_out"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/arial_regular"
+                    android:visibility="@{viewModel.loggedIn}"
+                    android:onClick="onClickLogOut"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_bar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
