@@ -46,9 +46,10 @@
 
                 <Button
                     android:layout_height="@dimen/form_default_height"
-                    android:layout_width="70dp"
+                    android:layout_width="65dp"
                     android:text="@string/log_out"
                     android:layout_margin="10dp"
+                    android:textSize="@dimen/medium_text"
                     android:fontFamily="@font/arial_regular"
                     android:visibility="@{viewModel.loggedIn}"
                     android:onClick="onClickLogOut"
