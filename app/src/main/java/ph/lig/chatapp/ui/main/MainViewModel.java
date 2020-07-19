@@ -95,7 +95,6 @@ public class MainViewModel extends ObservableViewModel implements Authentication
             @Override
             public void onSuccess(@NotNull Realm r) {
                 mRealm = r;
-                mRealm.executeTransaction(realm -> realm.delete(Message.class));
                 callback.onSuccess(r);
             }
 
