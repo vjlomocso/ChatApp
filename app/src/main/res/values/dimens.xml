@@ -5,7 +5,8 @@
     <dimen name="medium_text">5.76pt</dimen>
 
     <!-- Controls -->
-    <dimen name="form_control_radius">7dp</dimen>
+    <dimen name="form_default_height">30dp</dimen>
+    <dimen name="form_control_radius">5dp</dimen>
     <dimen name="form_control_height">39dp</dimen>
     <dimen name="form_control_padding">10dp</dimen>
     <dimen name="form_margin">9.5dp</dimen>
@@ -13,5 +14,4 @@
     <dimen name="message_radius">4dp</dimen>
     <dimen name="message_tail_height">15dp</dimen>
     <dimen name="message_tail_width">7.5dp</dimen>
-    <dimen name="form_default_height">30dp</dimen>
 </resources>
